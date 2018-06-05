@@ -51,12 +51,12 @@ GCDWebServer *webServer =nil;
         NSString *helperPath = [NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath], @"install_helper.sh"];
         NSLog(@"run install script: %@", helperPath);
         NSDictionary *error;
-        NSString *script = [NSString stringWithFormat:@"do shell script \"bash %@\" with administrator privileges", helperPath];
+        NSString *script = [NSString stringWithFormat:@"do shell script \"/bin/bash \\\"%@\\\"\" with administrator privileges", helperPath];
         NSAppleScript *appleScript = [[NSAppleScript new] initWithSource:script];
         if ([appleScript executeAndReturnError:&error]) {
             NSLog(@"installation success");
         } else {
-            NSLog(@"installation failure");
+            NSLog(@"installation failure: %@", error);
         }
     }
 }
@@ -114,6 +114,25 @@ GCDWebServer *webServer =nil;
     }
 }
 
++ (void)addArguments4ManualSpecifyProxyExceptions:(NSMutableArray*) args {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
+    NSString* rawExceptions = [defaults stringForKey:@"ProxyExceptions"];
+    if (rawExceptions) {
+        NSCharacterSet* whites = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        NSMutableCharacterSet* seps = [NSMutableCharacterSet characterSetWithCharactersInString:@",、"];
+        [seps formUnionWithCharacterSet:whites];
+
+        NSArray* exceptions = [rawExceptions componentsSeparatedByCharactersInSet:seps];
+        for (NSString* domainOrHost in exceptions) {
+            if ([domainOrHost length] > 0) {
+                [args addObject:@"-x"];
+                [args addObject:domainOrHost];
+            }
+        }
+    }
+}
+
 + (NSString*)getPACFilePath {
     return [NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @".ShadowsocksX-NG/gfwlist.js"];
 }
@@ -129,6 +148,7 @@ GCDWebServer *webServer =nil;
     NSMutableArray* args = [@[@"--mode", @"auto", @"--pac-url", [url absoluteString]]mutableCopy];
     
     [self addArguments4ManualSpecifyNetworkServices:args];
+    [self addArguments4ManualSpecifyProxyExceptions:args];
     [self callHelper:args];
 }
 
@@ -148,6 +168,7 @@ GCDWebServer *webServer =nil;
 //    }
     
     [self addArguments4ManualSpecifyNetworkServices:args];
+    [self addArguments4ManualSpecifyProxyExceptions:args];
     [self callHelper:args];
     [self stopPACServer];
 }
@@ -162,6 +183,7 @@ GCDWebServer *webServer =nil;
                               , @"--pac-url", [url absoluteString]
                               ]mutableCopy];
     [self addArguments4ManualSpecifyNetworkServices:args];
+    [self addArguments4ManualSpecifyProxyExceptions:args];
     [self callHelper:args];
     [self stopPACServer];
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08FCA0FF1E24BE1A0070984F /* example-gui-config.json in Resources */ = {isa = PBXBuildFile; fileRef = 08FCA0FE1E24BE1A0070984F /* example-gui-config.json */; };
+		1C82DBA81FA96C7500B32551 /* obfs-local in Resources */ = {isa = PBXBuildFile; fileRef = 1C82DBA51FA96C7400B32551 /* obfs-local */; };
+		1C82DBAA1FA96FB600B32551 /* install_simple_obfs.sh in Resources */ = {isa = PBXBuildFile; fileRef = 1C82DBA91FA96F0300B32551 /* install_simple_obfs.sh */; };
 		258E511BA910B0521B24DAB8 /* Pods_ShadowsocksX_NG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283ED1A8E9B711AC65670031 /* Pods_ShadowsocksX_NG.framework */; };
 		9B07EFA71D048BBB0052D9DF /* ss-local in Resources */ = {isa = PBXBuildFile; fileRef = 9B07EFA61D048BBB0052D9DF /* ss-local */; };
 		9B07EFAC1D048E880052D9DF /* menu_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B07EFA81D048E880052D9DF /* menu_icon@2x.png */; };
@@ -18,12 +20,13 @@
 		9B0BFFEB1D0460A70040E62B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B0BFFEA1D0460A70040E62B /* Assets.xcassets */; };
 		9B0BFFEE1D0460A70040E62B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0BFFEC1D0460A70040E62B /* MainMenu.xib */; };
 		9B0BFFF91D0460A70040E62B /* ShadowsocksX_NGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0BFFF81D0460A70040E62B /* ShadowsocksX_NGTests.swift */; };
+		9B16E59A1F99FD0700E54DC5 /* icons8-Eye Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B16E5971F99FD0700E54DC5 /* icons8-Eye Filled-50.png */; };
+		9B16E59B1F99FD0700E54DC5 /* icons8-Blind Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B16E5991F99FD0700E54DC5 /* icons8-Blind Filled-50.png */; };
 		9B2491B41D0ACC3A003BBECC /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B2491B61D0ACC3A003BBECC /* PreferencesWindowController.xib */; };
 		9B3546721E802B1200B510B4 /* ToastWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3546701E802B1200B510B4 /* ToastWindowController.swift */; };
 		9B3546731E802B1200B510B4 /* ToastWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3546711E802B1200B510B4 /* ToastWindowController.xib */; };
 		9B3F7BFF1E82BF5B00C68B75 /* libev.4.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3F7BF71E82BF2D00C68B75 /* libev.4.dylib */; };
 		9B3F7C001E82BF5B00C68B75 /* libmbedcrypto.2.4.2.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3F7BF81E82BF2D00C68B75 /* libmbedcrypto.2.4.2.dylib */; };
-		9B3F7C011E82BF5B00C68B75 /* libsodium.18.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3F7BF91E82BF2E00C68B75 /* libsodium.18.dylib */; };
 		9B3F7C021E82BF5B00C68B75 /* libudns.0.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3F7BFA1E82BF2E00C68B75 /* libudns.0.dylib */; };
 		9B3FFF0D1D05FEB30019A709 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3FFF0C1D05FEB30019A709 /* Utils.swift */; };
 		9B3FFF141D0705810019A709 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3FFF131D0705810019A709 /* Notifications.swift */; };
@@ -46,6 +49,9 @@
 		9B5832071E7421B2009D5B7D /* virtual-server-icon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5832061E7421B2009D5B7D /* virtual-server-icon-3.png */; };
 		9B58320B1E7422DB009D5B7D /* http.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B58320A1E7422DB009D5B7D /* http.png */; };
 		9B5832111E742632009D5B7D /* kcptun_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5832101E742632009D5B7D /* kcptun_1.png */; };
+		9B5AA0A1209C100C00E8B659 /* libsodium.23.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5AA09F209C100C00E8B659 /* libsodium.23.dylib */; };
+		9B5AA0A3209C103900E8B659 /* libcares.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5AA0A2209C103900E8B659 /* libcares.2.dylib */; };
+		9B5AA0A5209C115B00E8B659 /* libmbedcrypto.2.8.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5AA0A4209C115B00E8B659 /* libmbedcrypto.2.8.0.dylib */; };
 		9B6BF9541E27B2570061B9A7 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6BF9531E27B2570061B9A7 /* ServiceManagement.framework */; };
 		9B86459D1E7C2CAD00A84029 /* ProxyInterfacesViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86459C1E7C2CAD00A84029 /* ProxyInterfacesViewCtrl.swift */; };
 		9B938D991E864B38005F5636 /* menu_g_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B938D931E864B38005F5636 /* menu_g_icon.png */; };
@@ -64,6 +70,7 @@
 		9BA04B231D23D5A5005AAD7F /* ProxyConfTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA04B221D23D5A5005AAD7F /* ProxyConfTool.m */; };
 		9BAFE2E21E83ED7F00F71CCE /* PreferencesWinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFE2E41E83ED7F00F71CCE /* PreferencesWinController.xib */; };
 		9BB706A71D1B982300551F0E /* SWBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB706A51D1B982300551F0E /* SWBApplication.m */; };
+		9BBE7B751F508A0E00E8FFE5 /* fix_dir_owner.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9BBE7B711F50790500E8FFE5 /* fix_dir_owner.sh */; };
 		9BC70EDC1D2E3E3100EDA4CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B172A6C1D0ADDDD00B87B9A /* Localizable.strings */; };
 		9BEEF0691D04D4D500FC52B3 /* install_ss_local.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9BEEF0651D04CB8500FC52B3 /* install_ss_local.sh */; };
 		9BEEF06A1D04D4D500FC52B3 /* start_ss_local.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9BEEF0661D04CE8D00FC52B3 /* start_ss_local.sh */; };
@@ -133,6 +140,8 @@
 /* Begin PBXFileReference section */
 		08FCA0FE1E24BE1A0070984F /* example-gui-config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "example-gui-config.json"; sourceTree = "<group>"; };
 		19083CFCED87354F006967FF /* Pods_ShadowsocksX_NGUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShadowsocksX_NGUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C82DBA51FA96C7400B32551 /* obfs-local */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "obfs-local"; sourceTree = "<group>"; };
+		1C82DBA91FA96F0300B32551 /* install_simple_obfs.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install_simple_obfs.sh; sourceTree = "<group>"; };
 		1E7783AEDB4A3BDDC9FF16AC /* libPods-proxy_conf_helper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-proxy_conf_helper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		283ED1A8E9B711AC65670031 /* Pods_ShadowsocksX_NG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShadowsocksX_NG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		297AF069022A197FD8E9D226 /* Pods-proxy_conf_helper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proxy_conf_helper.release.xcconfig"; path = "Pods/Target Support Files/Pods-proxy_conf_helper/Pods-proxy_conf_helper.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +163,8 @@
 		9B0BFFF41D0460A70040E62B /* ShadowsocksX-NGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ShadowsocksX-NGTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B0BFFF81D0460A70040E62B /* ShadowsocksX_NGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowsocksX_NGTests.swift; sourceTree = "<group>"; };
 		9B0BFFFA1D0460A70040E62B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B16E5971F99FD0700E54DC5 /* icons8-Eye Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Eye Filled-50.png"; sourceTree = "<group>"; };
+		9B16E5991F99FD0700E54DC5 /* icons8-Blind Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Blind Filled-50.png"; sourceTree = "<group>"; };
 		9B172A601D0ADA5B00B87B9A /* genstrings.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = genstrings.py; sourceTree = "<group>"; };
 		9B172A6B1D0ADDDD00B87B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9B172A6D1D0ADDE800B87B9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -162,7 +173,6 @@
 		9B3546711E802B1200B510B4 /* ToastWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToastWindowController.xib; sourceTree = "<group>"; };
 		9B3F7BF71E82BF2D00C68B75 /* libev.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libev.4.dylib; sourceTree = "<group>"; };
 		9B3F7BF81E82BF2D00C68B75 /* libmbedcrypto.2.4.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedcrypto.2.4.2.dylib; sourceTree = "<group>"; };
-		9B3F7BF91E82BF2E00C68B75 /* libsodium.18.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsodium.18.dylib; sourceTree = "<group>"; };
 		9B3F7BFA1E82BF2E00C68B75 /* libudns.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libudns.0.dylib; sourceTree = "<group>"; };
 		9B3FFF0C1D05FEB30019A709 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9B3FFF131D0705810019A709 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -194,6 +204,9 @@
 		9B5832061E7421B2009D5B7D /* virtual-server-icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "virtual-server-icon-3.png"; sourceTree = "<group>"; };
 		9B58320A1E7422DB009D5B7D /* http.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = http.png; sourceTree = "<group>"; };
 		9B5832101E742632009D5B7D /* kcptun_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kcptun_1.png; sourceTree = "<group>"; };
+		9B5AA09F209C100C00E8B659 /* libsodium.23.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsodium.23.dylib; sourceTree = "<group>"; };
+		9B5AA0A2209C103900E8B659 /* libcares.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libcares.2.dylib; sourceTree = "<group>"; };
+		9B5AA0A4209C115B00E8B659 /* libmbedcrypto.2.8.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libmbedcrypto.2.8.0.dylib; sourceTree = "<group>"; };
 		9B6BF9531E27B2570061B9A7 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		9B86459C1E7C2CAD00A84029 /* ProxyInterfacesViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyInterfacesViewCtrl.swift; sourceTree = "<group>"; };
 		9B938D931E864B38005F5636 /* menu_g_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_g_icon.png; sourceTree = "<group>"; };
@@ -216,6 +229,7 @@
 		9BAFE2EB1E83F91D00F71CCE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		9BB706A51D1B982300551F0E /* SWBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWBApplication.m; sourceTree = "<group>"; };
 		9BB706A61D1B982300551F0E /* SWBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWBApplication.h; sourceTree = "<group>"; };
+		9BBE7B711F50790500E8FFE5 /* fix_dir_owner.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = fix_dir_owner.sh; sourceTree = "<group>"; };
 		9BE8FBC11D0B71CF00CAFD01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PreferencesWindowController.strings"; sourceTree = "<group>"; };
 		9BEEF0651D04CB8500FC52B3 /* install_ss_local.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = install_ss_local.sh; sourceTree = "<group>"; };
 		9BEEF0661D04CE8D00FC52B3 /* start_ss_local.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_ss_local.sh; sourceTree = "<group>"; };
@@ -243,9 +257,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B5AA0A3209C103900E8B659 /* libcares.2.dylib in Frameworks */,
 				9B6BF9541E27B2570061B9A7 /* ServiceManagement.framework in Frameworks */,
 				9B3FFF3E1D08D9910019A709 /* SystemConfiguration.framework in Frameworks */,
+				9B5AA0A5209C115B00E8B659 /* libmbedcrypto.2.8.0.dylib in Frameworks */,
 				258E511BA910B0521B24DAB8 /* Pods_ShadowsocksX_NG.framework in Frameworks */,
+				9B5AA0A1209C100C00E8B659 /* libsodium.23.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +285,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C82DBA31FA96C7400B32551 /* simple-obfs */ = {
+			isa = PBXGroup;
+			children = (
+				1C82DBA51FA96C7400B32551 /* obfs-local */,
+				1C82DBA91FA96F0300B32551 /* install_simple_obfs.sh */,
+			);
+			path = "simple-obfs";
+			sourceTree = "<group>";
+		};
 		33F4F299F89330966F4526E4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +312,12 @@
 		9B07EFB01D048E900052D9DF /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B5AA09F209C100C00E8B659 /* libsodium.23.dylib */,
+				9B5AA0A2209C103900E8B659 /* libcares.2.dylib */,
+				9B5AA0A4209C115B00E8B659 /* libmbedcrypto.2.8.0.dylib */,
+				1C82DBA31FA96C7400B32551 /* simple-obfs */,
+				9B16E5991F99FD0700E54DC5 /* icons8-Blind Filled-50.png */,
+				9B16E5971F99FD0700E54DC5 /* icons8-Eye Filled-50.png */,
 				9B938D931E864B38005F5636 /* menu_g_icon.png */,
 				9B938D941E864B38005F5636 /* menu_g_icon@2x.png */,
 				9B938D951E864B38005F5636 /* menu_m_icon.png */,
@@ -294,7 +326,6 @@
 				9B938D981E864B38005F5636 /* menu_p_icon@2x.png */,
 				9B3F7BF71E82BF2D00C68B75 /* libev.4.dylib */,
 				9B3F7BF81E82BF2D00C68B75 /* libmbedcrypto.2.4.2.dylib */,
-				9B3F7BF91E82BF2E00C68B75 /* libsodium.18.dylib */,
 				9B3F7BFA1E82BF2E00C68B75 /* libudns.0.dylib */,
 				9B5832101E742632009D5B7D /* kcptun_1.png */,
 				9B58320A1E7422DB009D5B7D /* http.png */,
@@ -324,6 +355,7 @@
 				C6D429981DA76FBC002A5711 /* privoxy.config.example */,
 				9B9CBCB01E2644DC00FC61AA /* start_kcptun.sh */,
 				9B9CBCB11E26450D00FC61AA /* stop_kcptun.sh */,
+				9BBE7B711F50790500E8FFE5 /* fix_dir_owner.sh */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -518,16 +550,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = qiuyuzhou;
 				TargetAttributes = {
 					9B0BFFE41D0460A70040E62B = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 					9B0BFFF31D0460A70040E62B = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						TestTargetID = 9B0BFFE41D0460A70040E62B;
 					};
 					9B3FFF431D09CD3B0019A709 = {
@@ -577,9 +609,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BBE7B751F508A0E00E8FFE5 /* fix_dir_owner.sh in Resources */,
 				9B3F7BFF1E82BF5B00C68B75 /* libev.4.dylib in Resources */,
+				1C82DBAA1FA96FB600B32551 /* install_simple_obfs.sh in Resources */,
 				9B3F7C001E82BF5B00C68B75 /* libmbedcrypto.2.4.2.dylib in Resources */,
-				9B3F7C011E82BF5B00C68B75 /* libsodium.18.dylib in Resources */,
 				9B3F7C021E82BF5B00C68B75 /* libudns.0.dylib in Resources */,
 				9B9CBCB41E26453C00FC61AA /* start_kcptun.sh in Resources */,
 				9B9CBCB51E26453C00FC61AA /* stop_kcptun.sh in Resources */,
@@ -598,6 +631,7 @@
 				C8E42A6E1D4F2CAF0074C7EA /* UserRulesController.xib in Resources */,
 				9BEEF06A1D04D4D500FC52B3 /* start_ss_local.sh in Resources */,
 				9B5832111E742632009D5B7D /* kcptun_1.png in Resources */,
+				9B16E59A1F99FD0700E54DC5 /* icons8-Eye Filled-50.png in Resources */,
 				9B938D9C1E864B38005F5636 /* menu_m_icon@2x.png in Resources */,
 				9B3546731E802B1200B510B4 /* ToastWindowController.xib in Resources */,
 				C6D429941DA75988002A5711 /* privoxy in Resources */,
@@ -609,12 +643,14 @@
 				9BAFE2E21E83ED7F00F71CCE /* PreferencesWinController.xib in Resources */,
 				9B0BFFEB1D0460A70040E62B /* Assets.xcassets in Resources */,
 				08FCA0FF1E24BE1A0070984F /* example-gui-config.json in Resources */,
+				1C82DBA81FA96C7500B32551 /* obfs-local in Resources */,
 				9B938D9D1E864B38005F5636 /* menu_p_icon.png in Resources */,
 				9B938D9B1E864B38005F5636 /* menu_m_icon.png in Resources */,
 				9B3FFF271D0898EB0019A709 /* gfwlist.txt in Resources */,
 				C6D429931DA75988002A5711 /* install_privoxy.sh in Resources */,
 				9B58320B1E7422DB009D5B7D /* http.png in Resources */,
 				9BC70EDC1D2E3E3100EDA4CA /* Localizable.strings in Resources */,
+				9B16E59B1F99FD0700E54DC5 /* icons8-Blind Filled-50.png in Resources */,
 				9B0BFFEE1D0460A70040E62B /* MainMenu.xib in Resources */,
 				9B3FFF4C1D09D8F70019A709 /* install_helper.sh in Resources */,
 				C6D429961DA75988002A5711 /* start_privoxy.sh in Resources */,
@@ -657,13 +693,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShadowsocksX-NGTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3545247EFCD033C3FA63EA6C /* [CP] Check Pods Manifest.lock */ = {
@@ -672,13 +711,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-proxy_conf_helper-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3E819BD46B855EDB116A3C70 /* [CP] Copy Pods Resources */ = {
@@ -702,9 +744,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShadowsocksX-NG/Pods-ShadowsocksX-NG-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
+				"${BUILT_PRODUCTS_DIR}/MASShortcut/MASShortcut.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MASShortcut.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -732,13 +785,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShadowsocksX-NG-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D8C2D6AF002916F4095E15E3 /* [CP] Copy Pods Resources */ = {
@@ -877,14 +933,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -925,14 +987,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -974,13 +1042,15 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 					"$(PROJECT_DIR)/ShadowsocksX-NG",
+					"$(PROJECT_DIR)/ShadowsocksX-NG/simple-obfs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qiuyuzhou.ShadowsocksX-NG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShadowsocksX-NG/ShadowsocksX-NG-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1002,12 +1072,14 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 					"$(PROJECT_DIR)/ShadowsocksX-NG",
+					"$(PROJECT_DIR)/ShadowsocksX-NG/simple-obfs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qiuyuzhou.ShadowsocksX-NG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShadowsocksX-NG/ShadowsocksX-NG-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1022,7 +1094,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qiuyuzhou.ShadowsocksX-NGTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShadowsocksX-NG/ShadowsocksX-NG-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShadowsocksX-NG.app/Contents/MacOS/ShadowsocksX-NG";
 			};
 			name = Debug;
@@ -1038,7 +1111,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.qiuyuzhou.ShadowsocksX-NGTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShadowsocksX-NG/ShadowsocksX-NG-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShadowsocksX-NG.app/Contents/MacOS/ShadowsocksX-NG";
 			};
 			name = Release;

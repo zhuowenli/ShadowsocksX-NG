@@ -32,10 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     @IBOutlet weak var serversMenuItem: NSMenuItem!
     @IBOutlet var showQRCodeMenuItem: NSMenuItem!
     @IBOutlet var scanQRCodeMenuItem: NSMenuItem!
-    @IBOutlet var showBunchJsonExampleFileItem: NSMenuItem!
-    @IBOutlet var importBunchJsonFileItem: NSMenuItem!
-    @IBOutlet var exportAllServerProfileItem: NSMenuItem!
-    @IBOutlet var serversPreferencesMenuItem: NSMenuItem!
+    @IBOutlet var serverProfilesBeginSeparatorMenuItem: NSMenuItem!
+    @IBOutlet var serverProfilesEndSeparatorMenuItem: NSMenuItem!
     
     @IBOutlet weak var copyHttpProxyExportCmdLineMenuItem: NSMenuItem!
     
@@ -48,7 +46,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     let kProfileMenuItemIndexBase = 100
 
     var statusItem: NSStatusItem!
-    static let StatusItemIconWidth:CGFloat = 20
+    static let StatusItemIconWidth: CGFloat = NSStatusItem.variableLength
+    
+    func ensureLaunchAgentsDirOwner () {
+        let dirPath = NSHomeDirectory() + "/Library/LaunchAgents"
+        let fileMgr = FileManager.default
+        if fileMgr.fileExists(atPath: dirPath) {
+            do {
+                let attrs = try fileMgr.attributesOfItem(atPath: dirPath)
+                if attrs[FileAttributeKey.ownerAccountName] as! String != NSUserName() {
+                    //try fileMgr.setAttributes([FileAttributeKey.ownerAccountName: NSUserName()], ofItemAtPath: dirPath)
+                    let bashFilePath = Bundle.main.path(forResource: "fix_dir_owner.sh", ofType: nil)!
+                    let script = "do shell script \"bash \\\"\(bashFilePath)\\\" \(NSUserName()) \" with administrator privileges"
+                    if let appleScript = NSAppleScript(source: script) {
+                        var err: NSDictionary? = nil
+                        appleScript.executeAndReturnError(&err)
+                    }
+                }
+            }
+            catch {
+                NSLog("Error when ensure the owner of $HOME/Library/LaunchAgents, \(error.localizedDescription)")
+            }
+        }
+    }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
@@ -56,10 +76,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         NSUserNotificationCenter.default.delegate = self
         
+        self.ensureLaunchAgentsDirOwner()
+        
         // Prepare ss-local
         InstallSSLocal()
         InstallKcptunClient()
         InstallPrivoxy()
+        InstallSimpleObfs()
         // Prepare defaults
         let defaults = UserDefaults.standard
         defaults.register(defaults: [
@@ -80,20 +103,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             "Kcptun.LocalHost": "127.0.0.1",
             "Kcptun.LocalPort": NSNumber(value: 8388),
             "Kcptun.Conn": NSNumber(value: 1),
+            "ProxyExceptions": "127.0.0.1, localhost, 192.168.0.0/16, 10.0.0.0/8",
             ])
         
-        statusItem = NSStatusBar.system().statusItem(withLength: AppDelegate.StatusItemIconWidth)
-        let image : NSImage = NSImage(named: "menu_icon")!
+        statusItem = NSStatusBar.system.statusItem(withLength: AppDelegate.StatusItemIconWidth)
+        let image : NSImage = NSImage(named: NSImage.Name(rawValue: "menu_icon"))!
         image.isTemplate = true
         statusItem.image = image
         statusItem.menu = statusMenu
-        
         
         let notifyCenter = NotificationCenter.default
         
         _ = notifyCenter.rx.notification(NOTIFY_CONF_CHANGED)
             .subscribe(onNext: { noti in
-                SyncSSLocal()
                 self.applyConfig()
                 self.updateCopyHttpProxyExportMenu()
             })
@@ -223,7 +245,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if editUserRulesWinCtrl != nil {
             editUserRulesWinCtrl.close()
         }
-        let ctrl = UserRulesController(windowNibName: "UserRulesController")
+        let ctrl = UserRulesController(windowNibName: NSNib.Name(rawValue: "UserRulesController"))
         editUserRulesWinCtrl = ctrl
         
         ctrl.showWindow(self)
@@ -239,8 +261,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
                 if qrcodeWinCtrl != nil{
                     qrcodeWinCtrl.close()
                 }
-                qrcodeWinCtrl = SWBQRCodeWindowController(windowNibName: "SWBQRCodeWindowController")
+                qrcodeWinCtrl = SWBQRCodeWindowController(windowNibName: NSNib.Name(rawValue: "SWBQRCodeWindowController"))
                 qrcodeWinCtrl.qrCode = profile.URL()!.absoluteString
+                qrcodeWinCtrl.legacyQRCode = profile.URL(legacy: true)!.absoluteString
                 qrcodeWinCtrl.title = profile.title()
                 qrcodeWinCtrl.showWindow(self)
                 NSApp.activate(ignoringOtherApps: true)
@@ -300,12 +323,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if preferencesWinCtrl != nil {
             preferencesWinCtrl.close()
         }
-        let ctrl = PreferencesWindowController(windowNibName: "PreferencesWindowController")
-        preferencesWinCtrl = ctrl
+        preferencesWinCtrl = PreferencesWindowController(windowNibName: NSNib.Name(rawValue: "PreferencesWindowController"))
         
-        ctrl.showWindow(self)
+        preferencesWinCtrl.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
-        ctrl.window?.makeKeyAndOrderFront(self)
+        preferencesWinCtrl.window?.makeKeyAndOrderFront(self)
     }
     
     @IBAction func showAllInOnePreferences(_ sender: NSMenuItem) {
@@ -313,7 +335,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             allInOnePreferencesWinCtrl.close()
         }
         
-        allInOnePreferencesWinCtrl = PreferencesWinController(windowNibName: "PreferencesWinController")
+        allInOnePreferencesWinCtrl = PreferencesWinController(windowNibName: NSNib.Name(rawValue: "PreferencesWinController"))
         
         allInOnePreferencesWinCtrl.showWindow(self)
         NSApp.activate(ignoringOtherApps: true)
@@ -343,24 +365,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         let command = "export http_proxy=http://\(address):\(port);export https_proxy=http://\(address):\(port);"
         
         // Copy to paste board.
-        NSPasteboard.general().clearContents()
-        NSPasteboard.general().setString(command, forType: NSStringPboardType)
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(command, forType: NSPasteboard.PasteboardType.string)
         
         // Show a toast notification.
         self.makeToast("Export Command Copied.".localized)
     }
     
     @IBAction func showLogs(_ sender: NSMenuItem) {
-        let ws = NSWorkspace.shared()
+        let ws = NSWorkspace.shared
         if let appUrl = ws.urlForApplication(withBundleIdentifier: "com.apple.Console") {
             try! ws.launchApplication(at: appUrl
-                ,options: .default
-                ,configuration: [NSWorkspaceLaunchConfigurationArguments: "~/Library/Logs/ss-local.log"])
+                ,options: NSWorkspace.LaunchOptions.default
+                ,configuration: [NSWorkspace.LaunchConfigurationKey.arguments: "~/Library/Logs/ss-local.log"])
         }
     }
     
     @IBAction func feedback(_ sender: NSMenuItem) {
-        NSWorkspace.shared().open(URL(string: "https://github.com/qiuyuzhou/ShadowsocksX-NG/issues")!)
+        NSWorkspace.shared.open(URL(string: "https://github.com/qiuyuzhou/ShadowsocksX-NG/issues")!)
     }
     
     @IBAction func showAbout(_ sender: NSMenuItem) {
@@ -389,17 +411,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         serversMenuItem.title = serverMenuText
         
         if mode == "auto" {
-            autoModeMenuItem.state = 1
-            globalModeMenuItem.state = 0
-            manualModeMenuItem.state = 0
+            autoModeMenuItem.state = .on
+            globalModeMenuItem.state = .off
+            manualModeMenuItem.state = .off
         } else if mode == "global" {
-            autoModeMenuItem.state = 0
-            globalModeMenuItem.state = 1
-            manualModeMenuItem.state = 0
+            autoModeMenuItem.state = .off
+            globalModeMenuItem.state = .on
+            manualModeMenuItem.state = .off
         } else if mode == "manual" {
-            autoModeMenuItem.state = 0
-            globalModeMenuItem.state = 0
-            manualModeMenuItem.state = 1
+            autoModeMenuItem.state = .off
+            globalModeMenuItem.state = .off
+            manualModeMenuItem.state = .on
         }
         updateStatusMenuImage()
     }
@@ -412,17 +434,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             if let m = mode {
                 switch m {
                     case "auto":
-                        statusItem.image = NSImage(named: "menu_p_icon")
+                        statusItem.image = NSImage(named: NSImage.Name(rawValue: "menu_p_icon"))
                     case "global":
-                        statusItem.image = NSImage(named: "menu_g_icon")
+                        statusItem.image = NSImage(named: NSImage.Name(rawValue: "menu_g_icon"))
                     case "manual":
-                        statusItem.image = NSImage(named: "menu_m_icon")
+                        statusItem.image = NSImage(named: NSImage.Name(rawValue: "menu_m_icon"))
                 default: break
                 }
                 statusItem.image?.isTemplate = true
             }
         } else {
-            statusItem.image = NSImage(named: "menu_icon_disabled")
+            statusItem.image = NSImage(named: NSImage.Name(rawValue: "menu_icon_disabled"))
             statusItem.image?.isTemplate = true
         }
     }
@@ -433,12 +455,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if isOn {
             runningStatusMenuItem.title = "Shadowsocks: On".localized
             toggleRunningMenuItem.title = "Turn Shadowsocks Off".localized
-            let image = NSImage(named: "menu_icon")
+            let image = NSImage(named: NSImage.Name(rawValue: "menu_icon"))
             statusItem.image = image
         } else {
             runningStatusMenuItem.title = "Shadowsocks: Off".localized
             toggleRunningMenuItem.title = "Turn Shadowsocks On".localized
-            let image = NSImage(named: "menu_icon_disabled")
+            let image = NSImage(named: NSImage.Name(rawValue: "menu_icon_disabled"))
             statusItem.image = image
         }
         statusItem.image?.isTemplate = true
@@ -453,42 +475,36 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
     
     func updateServersMenu() {
+        guard let menu = serversMenuItem.submenu else { return }
+
         let mgr = ServerProfileManager.instance
-        serversMenuItem.submenu?.removeAllItems()
-        let preferencesItem = serversPreferencesMenuItem
-        let showBunch = showBunchJsonExampleFileItem
-        let importBuntch = importBunchJsonFileItem
-        let exportAllServer = exportAllServerProfileItem
-        
-        serversMenuItem.submenu?.addItem(preferencesItem!)
-        serversMenuItem.submenu?.addItem(NSMenuItem.separator())
-        
-        var i = 0
-        for p in mgr.profiles {
+        let profiles = mgr.profiles
+
+        // Remove all profile menu items
+        let beginIndex = menu.index(of: serverProfilesBeginSeparatorMenuItem) + 1
+        let endIndex = menu.index(of: serverProfilesEndSeparatorMenuItem)
+        // Remove from end to begin, so the index won't change :)
+        for index in (beginIndex..<endIndex).reversed() {
+            menu.removeItem(at: index)
+        }
+
+        // Insert all profile menu items
+        for (i, profile) in profiles.enumerated().reversed() {
             let item = NSMenuItem()
             item.tag = i + kProfileMenuItemIndexBase
-            item.title = p.title()
-            if mgr.activeProfileId == p.uuid {
-                item.state = 1
-            }
-            if !p.isValid() {
-                item.isEnabled = false
-            }
+            item.title = profile.title()
+            item.state = (mgr.activeProfileId == profile.uuid) ? .on : .off
+            item.isEnabled = profile.isValid()
             item.action = #selector(AppDelegate.selectServer)
             
-            serversMenuItem.submenu?.addItem(item)
-            i += 1
+            menu.insertItem(item, at: beginIndex)
         }
-        if !mgr.profiles.isEmpty {
-            serversMenuItem.submenu?.addItem(NSMenuItem.separator())
-        }
-        
-        serversMenuItem.submenu?.addItem(showBunch!)
-        serversMenuItem.submenu?.addItem(importBuntch!)
-        serversMenuItem.submenu?.addItem(exportAllServer!)
+
+        // End separator is redundant if profile section is empty
+        serverProfilesEndSeparatorMenuItem.isHidden = profiles.isEmpty
     }
     
-    func handleURLEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
+    @objc func handleURLEvent(_ event: NSAppleEventDescriptor, withReplyEvent replyEvent: NSAppleEventDescriptor) {
         if let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue {
             if let url = URL(string: urlString) {
                 NotificationCenter.default.post(
@@ -559,7 +575,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         if toastWindowCtrl != nil {
             toastWindowCtrl.close()
         }
-        toastWindowCtrl = ToastWindowController(windowNibName: "ToastWindowController")
+        toastWindowCtrl = ToastWindowController(windowNibName: NSNib.Name(rawValue: "ToastWindowController"))
         toastWindowCtrl.message = message
         toastWindowCtrl.showWindow(self)
         //NSApp.activate(ignoringOtherApps: true)
